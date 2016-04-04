@@ -1,6 +1,13 @@
 /**
  * Created by lucasgagnon on 4/4/16.
+ * This code assumes that:
+ *  -Empty arrays will not be passed.
+ *
+ * The findMaxContigSeq method runs in constant time, and has the
+ * following recusion: f(n) = 2f(n/2) + n, f(1) = 1, f(2) = 1. Thus,
+ * by the master theorem this algorithm should be in O(nlog(n)).
  */
+
 public class MaxContigSeq {
 
     // Input Array.  Assuming values are integer because who really cares.
@@ -10,6 +17,11 @@ public class MaxContigSeq {
         this.array=array;
     }
 
+    /**
+     * Public version
+     * @return int index of peak
+     * @throws IllegalArgumentException
+     */
     public int findMaxContigSeq() throws IllegalArgumentException{
         if (array.length == 0) {
             System.out.println("Array is empty");
@@ -18,6 +30,12 @@ public class MaxContigSeq {
         return findMaxContigSeq(0, array.length - 1);
     }
 
+    /**
+     * Private, recursive version.
+     * @param minIndex start of sub-array that is recursed on
+     * @param maxIndex end of sub-array that is recursed on.
+     * @return int index of peak
+     */
     private int findMaxContigSeq(int minIndex, int maxIndex) {
         if (minIndex == maxIndex) {
             return array[minIndex];

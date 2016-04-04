@@ -1,5 +1,20 @@
 /**
- * Created by lucasgagnon on 4/1/16.
+ * Created by lucasgagnon on 4/4/16.
+ * This code assumes the assumptions given in the assignment.
+ * These are:
+ *  -Each entry of the array contains a distinct number,
+ *  -For some index p between 0 and n-1, the values in the
+ *   array increase up to position p in A and then decrease
+ *   the remainder of the way until position n-1,
+ *
+ * Additionally, we assume:
+ *  -The peak of an array with one or two values is the max,
+ *  -Peaks can exist as the first or last entry of the array,
+ *  -Empty arrays will not be passed.
+ *
+ * The findPeak method runs in constant time, and has the
+ * following recusion: f(n) = f(n/2) + c, f(1) = 1, f(2) = 1. Thus,
+ * by the master theorem this algorithm should be in O(log(n)).
  */
 public class PeakFinder {
 
